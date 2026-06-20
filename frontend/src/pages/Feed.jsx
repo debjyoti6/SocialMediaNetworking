@@ -31,7 +31,8 @@ export default function Feed({ user }) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto w-full py-8 space-y-8">
+    <div className="flex-1 overflow-y-auto min-h-0 w-full pb-8">
+      <div className="max-w-2xl mx-auto w-full py-4 space-y-8">
       {/* Create Post Section */}
       <form onSubmit={handlePost} className="glass p-6 rounded-2xl flex flex-col gap-4">
         <textarea
@@ -104,6 +105,7 @@ export default function Feed({ user }) {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }

@@ -8,8 +8,7 @@ export default function Navbar({ user, setUser }) {
   };
 
   return (
-    // Navigation bar stuck to top with glassmorphism effect
-    <nav className="glass sticky top-0 z-50 flex justify-between px-6 py-4 items-center">
+    <nav className="glass relative z-50 flex-shrink-0 flex justify-between px-6 py-4 items-center">
       <div className="flex gap-6 items-center">
         <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
           Multiverse

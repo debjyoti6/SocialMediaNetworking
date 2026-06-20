@@ -19,7 +19,7 @@ export default function App() {
   return (
     // Router provides the navigation context for the application
     <Router>
-      <div className="min-h-screen flex flex-col text-white relative overflow-hidden bg-space-dark">
+      <div className="h-screen flex flex-col text-white relative overflow-hidden bg-space-dark">
         {/* Animated Stars and Planets Background Layers */}
         <div className="stars"></div>
         <div className="twinkling"></div>
@@ -30,12 +30,12 @@ export default function App() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30vw] h-[30vw] rounded-full bg-gradient-to-tr from-teal-900/30 to-emerald-600/10 blur-[100px] z-0 mix-blend-screen"></div>
 
         {/* Content wrapper ensures content sits on top of background */}
-        <div className="relative z-10 flex flex-col min-h-screen">
+        <div className="relative z-10 flex flex-col h-full flex-1 min-h-0">
           {/* Render Navbar only if user is logged in */}
           {user && <Navbar user={user} setUser={setUser} />}
           
           {/* Main content area */}
-          <main className="flex-1 flex flex-col p-4">
+          <main className="flex-1 flex flex-col p-4 min-h-0">
           <Routes>
             {/* If not logged in, show Login; otherwise redirect to Feed */}
             <Route path="/" element={!user ? <Login setUser={setUser} /> : <Navigate to="/feed" />} />

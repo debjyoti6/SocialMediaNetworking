@@ -8,10 +8,17 @@ export default function Messages({ user }) {
   const [activeUser, setActiveUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState('');
-  const endRef = useRef(null);
+  const chatContainerRef = useRef(null);
 
-  // Scroll to the bottom of the chat
-  const scrollToBottom = () => endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // Scroll to the bottom of the chat without shifting the parent container
+  const scrollToBottom = () => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   // Fetch all users (excluding current user) when component mounts
   useEffect(() => {
@@ -44,7 +51,7 @@ export default function Messages({ user }) {
   };
 
   return (
-    <div className="max-w-5xl mx-auto w-full py-8 flex h-[80vh] gap-6">
+    <div className="max-w-5xl mx-auto w-full flex-1 flex gap-6 min-h-0">
       {/* Sidebar: Users List */}
       <div className="w-1/3 glass rounded-2xl flex flex-col overflow-hidden">
         <h2 className="p-4 bg-slate-800/50 font-bold text-xl border-b border-slate-700/50 uppercase tracking-widest text-indigo-300">Frequencies</h2>
@@ -78,7 +85,7 @@ export default function Messages({ user }) {
             </h2>
             
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 space-y-3">
               {messages.map(msg => {
                 const isMe = msg.senderId === user._id;
                 return (
@@ -89,7 +96,6 @@ export default function Messages({ user }) {
                   </div>
                 );
               })}
-              <div ref={endRef} />
             </div>
 
             {/* Input Form */}
