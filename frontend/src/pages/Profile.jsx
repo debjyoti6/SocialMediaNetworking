@@ -18,7 +18,7 @@ export default function Profile({ user, setUser }) {
       localStorage.setItem('user', JSON.stringify(res.data));
       setMsg('Coordinates locked!');
     } catch (err) {
-      setMsg('Failed to lock data.');
+      setMsg('Failed to lock data: ' + (err.response?.data?.message || err.message));
     }
   };
 
@@ -27,8 +27,8 @@ export default function Profile({ user, setUser }) {
       <div className="glass p-8 rounded-3xl text-center">
         {/* Profile Avatar */}
         <div className="w-32 h-32 mx-auto rounded-full border-4 border-indigo-500 overflow-hidden mb-4 bg-slate-800 flex justify-center items-center">
-          {user.profilePicture ? (
-            <img src={user.profilePicture} className="w-full h-full object-cover" alt="Profile" />
+          {form.profilePicture || user.profilePicture ? (
+            <img src={form.profilePicture || user.profilePicture} className="w-full h-full object-cover" alt="Profile" />
           ) : (
             <span className="text-4xl font-bold">{user.username[0].toUpperCase()}</span>
           )}

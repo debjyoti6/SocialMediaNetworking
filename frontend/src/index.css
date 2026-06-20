@@ -11,10 +11,25 @@
 /* Glassmorphism & custom space utilities */
 @layer utilities {
   .glass {
-    @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)];
+    @apply bg-[#0a0f1c]/70 backdrop-blur-2xl border border-indigo-500/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.8),inset_0_0_20px_rgba(79,70,229,0.05)];
   }
   .bg-space-dark {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.5);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 70, 229, 0.8);
   }
 }
 
@@ -56,3 +71,95 @@
   z-index: 1;
   animation: move-twink-back 200s linear infinite;
 }
+
+/* CSS Planets */
+.planet {
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: inset -25px -25px 40px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1);
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-40px) rotate(10deg); }
+}
+
+.planet-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at 30% 30%, #ff9a9e, #fecfef, #111);
+  top: 15%;
+  right: 8%;
+  animation-duration: 25s;
+}
+
+.planet-2 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #a1c4fd, #c2e9fb, #111);
+  bottom: 25%;
+  left: 6%;
+  animation-duration: 18s;
+  animation-delay: -5s;
+}
+
+.planet-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at 20% 20%, #4facfe, #00f2fe, #000);
+  top: 60%;
+  right: -10%;
+  opacity: 0.5;
+  animation-duration: 35s;
+  z-index: 0;
+  box-shadow: inset -40px -40px 60px rgba(0,0,0,0.9);
+}
+
+.planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid rgba(194, 233, 251, 0.3);
+  border-top-color: transparent;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  box-shadow: 0 5px 15px rgba(194, 233, 251, 0.2);
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.8);
+  animation: shoot 6s linear infinite;
+  opacity: 0;
+  z-index: 2;
+}
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+}
+
+@keyframes shoot {
+  0% { transform: translate(100vw, -20vh) rotate(-45deg); opacity: 1; }
+  15% { transform: translate(-20vw, 100vh) rotate(-45deg); opacity: 0; }
+  100% { transform: translate(-20vw, 100vh) rotate(-45deg); opacity: 0; }
+}
+
+.star-1 { top: 5%; right: 10%; animation-delay: 0s; }
+.star-2 { top: 40%; right: -10%; animation-delay: 2.5s; }
+.star-3 { top: -10%; right: 50%; animation-delay: 4s; }
+

@@ -59,6 +59,23 @@ router.put('/:id/like', async (req, res) => {
   }
 });
 
+// Update a post
+router.put('/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ message: 'Post not found' });
+    
+    // Only update content and image if provided
+    if (req.body.content !== undefined) post.content = req.body.content;
+    if (req.body.image !== undefined) post.image = req.body.image;
+
+    const updatedPost = await post.save();
+    res.json(updatedPost);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 // Delete a post
 router.delete('/:id', async (req, res) => {
   try {
