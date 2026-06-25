@@ -177,13 +177,13 @@ export default function Feed({ user }) {
           <textarea
             value={form.content}
             onChange={(e) => setForm({ ...form, content: e.target.value })}
-            placeholder="Broadcast to the Multiverse..."
+            placeholder="What's on your mind?"
             className="p-4 rounded-xl bg-slate-800/50 border border-slate-700 outline-none focus:border-indigo-500 resize-none h-24 text-white"
           />
           {/* File Picker & Submit Button */}
           <div className="flex items-center gap-4">
             <label className="cursor-pointer bg-indigo-900/40 hover:bg-indigo-800/60 px-4 py-2 rounded-lg text-indigo-300 transition border border-indigo-500/30 text-sm font-bold uppercase tracking-wider">
-              🌌 Attach Hologram
+              📷 Attach Image
               <input
                 type="file"
                 accept="image/*"
@@ -202,12 +202,12 @@ export default function Feed({ user }) {
             {form.image && (
               <div className="flex items-center gap-2">
                 <img src={form.image} alt="Preview" className="w-8 h-8 rounded object-cover border border-indigo-500" />
-                <span className="text-sm text-cyan-400 font-bold tracking-wide">Hologram primed &check;</span>
+                <span className="text-sm text-cyan-400 font-bold tracking-wide">Image attached &check;</span>
               </div>
             )}
             
             <button type="submit" className="ml-auto px-8 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-all">
-              Launch
+              Post
             </button>
           </div>
         </form>

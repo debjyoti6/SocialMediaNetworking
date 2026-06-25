@@ -46,10 +46,11 @@ router.put('/:id/like', async (req, res) => {
     const post = await Post.findById(req.params.id);
     if (!post) return res.status(404).json({ message: 'Post not found' });
 
-    if (!post.likes.includes(req.body.userId)) {
+    const userIdStr = req.body.userId.toString();
+    if (!post.likes.some(id => id.toString() === userIdStr)) {
       post.likes.push(req.body.userId);
     } else {
-      post.likes = post.likes.filter(id => id.toString() !== req.body.userId);
+      post.likes = post.likes.filter(id => id.toString() !== userIdStr);
     }
 
     await post.save();

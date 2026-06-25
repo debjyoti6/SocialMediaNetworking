@@ -54,7 +54,7 @@ export default function Messages({ user }) {
     <div className="max-w-5xl mx-auto w-full flex-1 flex gap-6 min-h-0">
       {/* Sidebar: Users List */}
       <div className="w-1/3 glass rounded-2xl flex flex-col overflow-hidden">
-        <h2 className="p-4 bg-slate-800/50 font-bold text-xl border-b border-slate-700/50 uppercase tracking-widest text-indigo-300">Frequencies</h2>
+        <h2 className="p-4 bg-slate-800/50 font-bold text-xl border-b border-slate-700/50 uppercase tracking-widest text-indigo-300">Contacts</h2>
         <div className="overflow-y-auto p-2 flex-1 space-y-1">
           {users.map(u => (
             <div 
@@ -103,16 +103,16 @@ export default function Messages({ user }) {
               <input
                 value={text}
                 onChange={e => setText(e.target.value)}
-                placeholder="Encode transmission..."
+                placeholder="Type a message..."
                 className="flex-1 bg-slate-900 border border-slate-700 rounded-full px-4 outline-none focus:border-indigo-500 text-white"
               />
               <button type="submit" className="bg-indigo-600 hover:bg-indigo-500 px-6 py-2 rounded-full font-bold uppercase tracking-widest shadow-[0_0_10px_rgba(79,70,229,0.5)] transition">
-                Transmit
+                Send
               </button>
             </form>
           </>
         ) : (
-          <div className="flex-1 flex justify-center items-center text-slate-400 font-medium">Tune into a frequency to start transmitting.</div>
+          <div className="flex-1 flex justify-center items-center text-slate-400 font-medium">Select a conversation to start messaging.</div>
         )}
       </div>
     </div>

@@ -14,9 +14,9 @@ export default function Navbar({ user, setUser }) {
           Multiverse
         </h1>
         {/* Navigation Links */}
-        <Link to="/feed" className="hover:text-indigo-400 font-medium">Galaxy</Link>
-        <Link to="/messages" className="hover:text-indigo-400 font-medium">Comms</Link>
-        <Link to="/profile" className="hover:text-indigo-400 font-medium">Command Center</Link>
+        <Link to="/feed" className="hover:text-indigo-400 font-medium">Feed</Link>
+        <Link to="/messages" className="hover:text-indigo-400 font-medium">Messages</Link>
+        <Link to="/profile" className="hover:text-indigo-400 font-medium">Profile</Link>
       </div>
 
       <div className="flex items-center gap-4">
@@ -34,7 +34,7 @@ export default function Navbar({ user, setUser }) {
         
         {/* Logout Button */}
         <button onClick={logout} className="px-5 py-1.5 rounded-full bg-red-500/20 hover:bg-red-500/40 text-red-300 font-bold tracking-wider transition">
-          EJECT
+          LOGOUT
         </button>
       </div>
     </nav>

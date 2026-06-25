@@ -16,9 +16,9 @@ export default function Profile({ user, setUser }) {
       // Update global user state & local storage
       setUser(res.data);
       localStorage.setItem('user', JSON.stringify(res.data));
-      setMsg('Coordinates locked!');
+      setMsg('Profile updated!');
     } catch (err) {
-      setMsg('Failed to lock data: ' + (err.response?.data?.message || err.message));
+      setMsg('Failed to update profile: ' + (err.response?.data?.message || err.message));
     }
   };
 
@@ -46,7 +46,7 @@ export default function Profile({ user, setUser }) {
           {/* File Picker for Profile Picture */}
           <div className="flex flex-col gap-1 text-center mb-2">
             <label className="cursor-pointer bg-indigo-900/40 hover:bg-indigo-800/60 px-4 py-2 rounded-lg text-indigo-300 transition border border-indigo-500/30 text-sm font-bold uppercase tracking-wider self-center">
-              Update Hologram
+              Update Picture
               <input
                 type="file"
                 accept="image/*"
@@ -64,17 +64,17 @@ export default function Profile({ user, setUser }) {
             </label>
             {/* Show tiny preview text if photo is selected */}
             {form.profilePicture !== user.profilePicture && (
-              <span className="text-xs text-cyan-400 mt-1 font-bold tracking-wide">Hologram primed!</span>
+              <span className="text-xs text-cyan-400 mt-1 font-bold tracking-wide">Picture selected!</span>
             )}
           </div>
           <textarea
-            placeholder="Log your journey..."
+            placeholder="Write a bio..."
             value={form.bio}
             onChange={(e) => setForm({ ...form, bio: e.target.value })}
             className="p-3 rounded bg-slate-800/50 border border-slate-700 outline-none focus:border-indigo-500 resize-none h-24 text-white"
           />
           <button type="submit" className="py-3 rounded bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-all">
-            Lock in Data
+            Save Changes
           </button>
         </form>
       </div>

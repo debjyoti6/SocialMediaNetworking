@@ -19,26 +19,10 @@ export default function App() {
   return (
     // Router provides the navigation context for the application
     <Router>
-      <div className="h-screen flex flex-col text-white relative overflow-hidden bg-space-dark">
-        {/* Animated Stars and Planets Background Layers */}
-        <div className="stars"></div>
-        <div className="twinkling"></div>
-        
-        {/* Shooting Stars */}
-        <div className="shooting-star star-1"></div>
-        <div className="shooting-star star-2"></div>
-        <div className="shooting-star star-3"></div>
-
-        {/* CSS Planets */}
-        <div className="planet planet-1"></div>
-        <div className="planet planet-2">
-          <div className="planet-ring"></div>
-        </div>
-        <div className="planet planet-3"></div>
-
-        {/* Ambient Nebula Glows */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-purple-900/40 to-indigo-600/10 blur-[120px] z-0 mix-blend-screen animate-pulse-slow"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-fuchsia-900/30 to-blue-800/10 blur-[150px] z-0 mix-blend-screen animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+      <div className="h-screen flex flex-col text-white relative overflow-hidden bg-[#0f172a]">
+        {/* Ambient Glows */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-blue-900/20 to-teal-600/10 blur-[120px] z-0 mix-blend-screen"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-indigo-900/20 to-purple-800/10 blur-[150px] z-0 mix-blend-screen"></div>
 
         {/* Content wrapper ensures content sits on top of background */}
         <div className="relative z-10 flex flex-col h-full flex-1 min-h-0">

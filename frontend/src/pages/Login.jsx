@@ -32,7 +32,7 @@ export default function Login({ setUser }) {
       {/* Glass card container */}
       <div className="glass p-8 rounded-2xl w-full max-w-md shadow-2xl">
         <h2 className="text-3xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">
-          {isLogin ? 'Re-enter Orbit' : 'Join the Multiverse'}
+          {isLogin ? 'Login' : 'Sign Up'}
         </h2>
 
         {/* Display error if any */}
@@ -65,15 +65,15 @@ export default function Login({ setUser }) {
           />
           
           <button type="submit" className="py-3 rounded bg-indigo-600 hover:bg-indigo-500 font-bold tracking-widest uppercase transition mt-2 shadow-[0_0_15px_rgba(79,70,229,0.5)]">
-            {isLogin ? 'Board Ship' : 'Enlist'}
+            {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </form>
 
         {/* Toggle Mode */}
         <p className="text-center mt-6 text-sm text-slate-400">
-          {isLogin ? "Lost in space? " : "Already enlisted? "}
+          {isLogin ? "Don't have an account? " : "Already have an account? "}
           <span onClick={() => { setIsLogin(!isLogin); setError(''); }} className="text-indigo-400 cursor-pointer font-bold">
-            {isLogin ? 'Enlist Now' : 'Board Ship'}
+            {isLogin ? 'Sign Up' : 'Login'}
           </span>
         </p>
       </div>
